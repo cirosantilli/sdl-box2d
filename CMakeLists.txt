@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.0)
+set(CMAKE_CXX_STANDARD 11)
+file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "Box2D/Box2D/Box2D/*.cpp")
+include_directories(${CMAKE_SOURCE_DIR}/Box2D/Box2D)
+add_library(Box2D SHARED ${SOURCES})
+
+file(GLOB srcs RELATIVE ${CMAKE_SOURCE_DIR} "*.cpp")
+foreach(src ${srcs})
+    string(REPLACE ".cpp" ".out" out ${src})
+    add_executable(${out} ${src})
+    target_link_libraries(${out} PRIVATE Box2D)
+endforeach(src ${srcs})
