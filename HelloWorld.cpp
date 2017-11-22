@@ -17,7 +17,7 @@ int main() {
 	bodyDef.position.Set(0.0f, 4.0f);
 	b2Body* body = world.CreateBody(&bodyDef);
 
-	// Falling box
+	// Falling box 2 x 2.
 	b2PolygonShape dynamicBox;
 	dynamicBox.SetAsBox(1.0f, 1.0f);
 	b2FixtureDef fixtureDef;
